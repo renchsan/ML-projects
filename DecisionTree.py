@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from mlxtend.plotting import plot_decision_regions
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.tree import export_graphviz
 iris = datasets.load_iris()
 
 x = iris.data[:, [2, 3]]
@@ -24,5 +25,7 @@ plt.xlabel('petal length [cm]')
 plt.ylabel('petal width [cm]')
 plt.legend(loc='upper left')
 plt.show()
+
+export_graphviz(tree, out_file='tree.dot', feature_names=['petal length', 'petal width'])
 
 
